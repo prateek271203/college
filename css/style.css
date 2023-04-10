@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: rgb(223, 83, 64);
+}
+.dropdown-menu .dropdown-item{
+    color: black !important;
+}
+.navbar ul li a{
+    color: white;
+}
+#home #carouselExampleFade .carousel-inner img{
+    height: 500px;
+}
+.modal{
+    border: none;
+}
+.modal-header{
+    background-color: rgb(223, 83, 64);
+}
+.modal-footer button{
+    background-color:rgb(223, 83, 64) ;
+}
+.container-fluid .row{
+    height: 200px;
+    background-color:rgb(223, 83, 64) ;
+    justify-content: center;
+    display: flex;
+}
+.card-body h6 a {
+    text-decoration: none;
+    color:rgb(223, 83, 64) ;
+}
+footer .col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer h3{
+    color: white;
+}
+/* hover effect of header menu */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
