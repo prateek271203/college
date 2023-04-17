@@ -5,17 +5,8 @@
 .navbar{
     background-color: rgb(223, 83, 64);
 }
-.dropdown-menu .dropdown-item{
-    color: black !important;
-}
-.navbar ul li a{
-    color: white;
-}
 #home #carouselExampleFade .carousel-inner img{
     height: 500px;
-}
-.modal{
-    border: none;
 }
 .modal-header{
     background-color: rgb(223, 83, 64);
@@ -33,15 +24,14 @@
     text-decoration: none;
     color:rgb(223, 83, 64) ;
 }
-footer .col{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-footer h3{
-    color: white;
-}
 /* hover effect of header menu */
+.logo{
+    cursor: pointer;
+}
+.nav-item a:hover{
+    color: black !important;
+    font-weight: 500;
+}
 .hover-underline-animation {
     display: inline-block;
     position: relative;

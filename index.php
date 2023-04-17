@@ -1,59 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/ddc1e328a4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <title>college</title>
-</head>
-<body>
+<?php 
+    require_once('header.php');
+?>
+<?php
+$showalert = false;
+$showerror = false;
+if($showalert){
+    echo '<div class="alert alert-success" role="alert">
+    Your account is succesfully created.
+</div>'; 
+}
+if($showerror){
+    echo '<div class="alert alert-danger" role="alert">
+    your password and confirm password is not same.
+</div>'; 
+}
+?>
     <div id="home">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <div class="d-flex ms-4">
-                    <img src="img/download.png" alt="" srcset="" style="width: 50px; border-radius: 50%;">
-                    <h5 class="d-flex align-items-center ms-2 text-white">LNMCBM</h5>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
-                </button> 
-                <div class="collapse navbar-collapse justify-content-end me-5" id="navbarSupportedContent" style="flex-grow: 0;">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item hover-underline-animation">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item hover-underline-animation">
-                            <a class="nav-link" href="#">About us</a>
-                        </li>
-                        <li class="nav-item hover-underline-animation">
-                            <a class="nav-link" href="#">contact us</a>
-                        </li>
-                        <li class="nav-item hover-underline-animation">
-                            <a class="nav-link" href="curriculam.html">curriculum</a>
-                        </li>
-                        <li class="nav-item dropdown hover-underline-animation">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                               course
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">BBA</a></li>
-                                <li><a class="dropdown-item" href="#">BCA</a></li>
-                                <li><a class="dropdown-item" href="#">MBA</a></li>
-                                <li><a class="dropdown-item" href="#">MCA</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item hover-underline-animation">
-                            <a class="nav-link" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal">Registration</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <!-- carousel -->
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -77,7 +39,8 @@
             </button>
           </div>
         <!-- modal -->
-        <div class="modal fade shadow" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Registration modal -->
+        <div class="modal fade shadow border-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -85,19 +48,43 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex justify-content-center">
-                        <form action="" style="width:70%">
-                            <input class="form-control mb-3" type="text" placeholder="Name" aria-label="default input example">
-                            <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="E-mail">
-                            <input class="form-control mb-3" type="number" placeholder=" Mobile no" aria-label="default input example">
-                            <input class="form-control mb-3" type="text" placeholder="Course" aria-label="default input example">
+                        <form action="databaseconnection.php" method="post" style="width:70%">
+                            <input class="form-control mb-3" id="fname" name="fname" type="text" placeholder="Name" aria-label="default input example">
+                            <input type="email" class="form-control mb-3" id="email" name="email" placeholder="E-mail">
+                            <input class="form-control mb-3" type="number" placeholder=" Mobile no" id="mobile_no" name="mobile_no" aria-label="default input example">
+                            <input class="form-control mb-3" type="text" placeholder="Course" id="course" name="course" aria-label="default input example">
+                            <input type="password" class="form-control mb-3" id="Password" name="password" placeholder="Password">
+                            <input type="password" class="form-control mb-3" id="confirmPassword" name="confirmpassword" placeholder=" confirm password">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Register</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Register</button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div class="modal fade shadow border-0" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="login.php" method="post" style="width:80%">
+                            <input type="email" class="form-control mb-3" id="email" name="email" placeholder="E-mail">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="password" name="pass">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="container mt-5">
             <h3 class="text-center">COURSE OFFERED</h3>
             <div class="row mt-3 mb-4">
@@ -167,15 +154,6 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <footer class="mt-5">
-                <div class="row">
-                    <div class="col">
-                        <h3>L. N. Mishra College Of Business Management, Muzaffarpur</h3>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
-</body>
-</html>
+<?php
+    require_once('footer.php');
+?>        
